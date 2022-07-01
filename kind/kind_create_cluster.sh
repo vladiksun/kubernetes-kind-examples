@@ -28,7 +28,7 @@ deleteCluster() {
 
 deleteCluster
 # create registry container unless it already exists
-source ./kind_create_local_registry.sh
+#source ./kind_create_local_registry.sh
 
 #create config from template
 eval "echo \"$(cat "${TEMPLATE_CONFIG_FILE}")\"" >"${CONFIG_FILE}"

@@ -1,0 +1,58 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: overwrite-cmd
+spec:
+  replicas: 1
+  minReadySeconds: 30
+  progressDeadlineSeconds: 120
+  selector:
+    matchLabels:
+      app: overwrite-cmd
+  template:
+    metadata:
+      labels:
+        app: overwrite-cmd
+    spec:
+      containers:
+        - image: jaesanglee/java-app-example:latest
+          name: overwrite-cmd
+          command: ["/bin/sh","-c", "java -XX:+PrintGCDetails -jar java-sample-1.0.0-RELEASE.war"]
+#          command: ["/bin/sh","-c", "java -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.port=9010 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dfile.encoding=UTF-8 -XX:+UseContainerSupport -Xmx1024m -XX:+UseShenandoahGC -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8888 -jar service.jar"]
+          ports:
+            - containerPort: 8080
+---
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: overwrite-cmd
+spec:
+  replicas: 1
+  minReadySeconds: 30
+  progressDeadlineSeconds: 120
+  selector:
+    matchLabels:
+      app: overwrite-cmd
+  template:
+    metadata:
+      labels:
+        app: overwrite-cmd
+    spec:
+      containers:
+        - image: jaesanglee/java-app-example:latest
+          name: overwrite-cmd
+          command:
+            - /bin/sh
+            - -c
+            - java -XX:+PrintGCDetails 
+              -jar java-sample-1.0.0-RELEASE.war
+          
+#          command: ["/bin/sh","-c", "java -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.port=9010 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dfile.encoding=UTF-8 -XX:+UseContainerSupport -Xmx1024m -XX:+UseShenandoahGC -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8888 -jar service.jar"]
+          ports:
+            - containerPort: 8080
+---
+
