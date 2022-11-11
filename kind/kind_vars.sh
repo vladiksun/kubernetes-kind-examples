@@ -3,6 +3,9 @@
 # https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 #KUBECONFIG="$HOME/.kube/config"
 
+REG_NAME='kind-registry'
+REG_PORT='5000'
+
 API_SERVER_ADDRESS='127.0.0.1'
 API_SERVER_PORT=32772
 

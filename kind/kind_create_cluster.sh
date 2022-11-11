@@ -27,14 +27,15 @@ deleteCluster() {
 }
 
 deleteCluster
-# create registry container unless it already exists
-#source ./kind_create_local_registry.sh
 
 #create config from template
 eval "echo \"$(cat "${TEMPLATE_CONFIG_FILE}")\"" >"${CONFIG_FILE}"
 
 #kind create cluster --name "$KIND_CLUSTER_NAME" --config "${CONFIG_FILE}" --kubeconfig "$KUBECONFIG" --verbosity 5 --wait 5m
 kind create cluster --name "$KIND_CLUSTER_NAME" --config "${CONFIG_FILE}" --wait 5m --verbosity 5
+
+# create registry container unless it already exists
+source ./kind_create_local_registry.sh
 
 # add charts repository
 source ./kind_init_helm.sh
