@@ -1,4 +1,8 @@
 
+# init container log
+kubectl logs $(kubectl get pods -l "app.kubernetes.io/name=camunda-history-collector" -o jsonpath="{.items[0].metadata.name}") \
+-c camunda-history-collector-db-migration
+
 kubectl cluster-info --context kind-testKindCluster
 
 kubectl config view --raw
