@@ -75,11 +75,15 @@ openDashboard() {
   local full_url="$HTTP_PART$DASHBOARD_URL"
 
   if [ "$machine" == "Linux" ]; then
-    xdg-open "$full_url"
+    xdg-open "$full_url" 2>/dev/null || \
+    echo "Error: Failed to open browser. Please check your default browser settings." >&2
   elif [ "$machine" == "Cygwin" ]; then
     cygstart "$full_url"
   elif [ "$machine" == "MinGw" ]; then
     start "$full_url"
+  else
+    echo "Unsupported operating system: $machine" >&2
+    return 1
   fi
 }
 
