@@ -25,7 +25,8 @@ DASHBOARD_URL=$KUBERNETES_DASHBOARD_URL
 INGRESS_TEST_MARKER='foo'
 
 #EXTRA_MOUNTS_HOST_PATH='C:\Users\vladislav.bondarchuk\Downloads\DockerMounts'
-EXTRA_MOUNTS_HOST_PATH='/DockerMounts'
+#EXTRA_MOUNTS_HOST_PATH='/DockerMounts'
+EXTRA_MOUNTS_HOST_PATH='/home/vladislav.bondarchuk@rtlabs.ru/development/DockerMount/'
 EXTRA_MOUNTS_CONTAINER_PATH='/DockerMounts'
 
 # docker run -ti --rm python:3-alpine python -c 'import secrets,base64; print(base64.b64encode(base64.b64encode(secrets.token_bytes(16))));'

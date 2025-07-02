@@ -136,7 +136,7 @@ pingDashboard() {
       echo "$full_url is up, returned $STATUS"
       echo "Dashboard is available"
 
-      openDashboard
+#      openDashboard
     else
       printf "%c" "."
     fi

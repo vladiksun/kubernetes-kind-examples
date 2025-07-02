@@ -32,29 +32,28 @@ nodes:
       - containerPort: 443
         hostPort: 443
         protocol: TCP
-      - containerPort: 11211
-        hostPort: 11211
-        protocol: TCP
+      - containerPort: 30000
+        hostPort: 8529
   - role: worker
     extraPortMappings:
       - containerPort: 9000 # this port can be used as a NodePort to expose a service
         hostPort: 9001
     extraMounts:
-      - hostPath: /DockerMounts
+      - hostPath: /home/vladislav.bondarchuk@rtlabs.ru/development/DockerMount/
         containerPath: /DockerMounts
-  - role: worker
-    extraPortMappings:
-      - containerPort: 9000
-        hostPort: 9002
-    extraMounts:
-      - hostPath: /DockerMounts
-        containerPath: /DockerMounts
-  - role: worker
-    extraPortMappings:
-      - containerPort: 9000
-        hostPort: 9003
-    extraMounts:
-      - hostPath: /DockerMounts
-        containerPath: /DockerMounts
+#  - role: worker
+#    extraPortMappings:
+#      - containerPort: 9000
+#        hostPort: 9002
+#    extraMounts:
+#      - hostPath: /home/vladislav.bondarchuk@rtlabs.ru/development/DockerMount/
+#        containerPath: /DockerMounts
+#  - role: worker
+#    extraPortMappings:
+#      - containerPort: 9000
+#        hostPort: 9003
+#    extraMounts:
+#      - hostPath: /home/vladislav.bondarchuk@rtlabs.ru/development/DockerMount/
+#        containerPath: /DockerMounts
 #        listenAddress: 0.0.0.0 # Optional, defaults to 0.0.0.0
 #        protocol: udp # Optional, defaults to tcp
