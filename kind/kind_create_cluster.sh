@@ -42,7 +42,7 @@ source ./kind_init_helm.sh
 
 #source ./cert-manager/kind_install_cert_manager.sh
 #source ./kind_install_oauth2_proxy.sh
-#source ./ingress/kind_install_ingress.sh
+source ./ingress/kind_install_ingress_v2.sh
 
 # Install dashboard
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.1/aio/deploy/recommended.yaml

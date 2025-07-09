@@ -7,6 +7,9 @@ source ../kind_vars.sh
 docker build -t localhost:5000/dev-tools:latest .
 docker push localhost:5000/dev-tools:latest
 
+docker run --rm --name dev-tools localhost:5000/dev-tools:latest
+docker run --rm -d --name dev-tools localhost:5000/dev-tools:latest
+
 #kubectl apply -f tools.yaml
 
 

@@ -11,4 +11,5 @@ RUN set -eux; \
 		wget \
 		libmemcached-tools
 
-ENTRYPOINT ["/bin/sh", "-c", "top"]
+#ENTRYPOINT ["/bin/sh", "sleep", "infinity"]
+CMD ["sh", "-c", "tail -f /dev/null"]
